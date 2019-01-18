@@ -1,0 +1,43 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "COMPANY":1,
+      "CLIENT_NAME": "Bugas P'AL CARRO, S.L - Bugas P'AL CARRO, S.L",
+      "DIVISION":"",
+      "SALES_BUDGET_ID":"OF14/00001",
+      "VERSION":1,
+      "CUSTOMER_ID":1,
+      "POTENCIAL":"",
+      "CONDITIONS_APPLICANT":0,
+      "PROFORMA":"",
+      "SALESMAN":2,
+      "COMMISION":0,
+      "TYPE":0,
+      "TOTALBASE":270,
+      "TOTAL":"326.70",
+      "DATE_DOCUMENT":1528935998,
+      "MINIMUN_AMOUNT":0,
+      "ACCEPTED":0,
+      "offerTypeData": [
+        {
+          "id": 1,
+          "name": "Solución"
+        }
+      ],
+      "countryData": [
+        {
+          "id": 1,
+          "name": "España"
+        }
+      ],
+      "transportType": [
+        {
+          "id": 1,
+          "name": "Facturable"
+        }
+      ]
+    }
+  ]
+}
