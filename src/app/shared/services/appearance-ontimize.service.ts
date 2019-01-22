@@ -1,9 +1,8 @@
 import { Injector } from '@angular/core';
-import { Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 
-import { OntimizeService, LoginService, AppConfig } from 'ontimize-web-ngx';
+import { OntimizeService, AppConfig } from 'ontimize-web-ngx';
 
 export class AppearanceOntimizeService extends OntimizeService {
 
@@ -13,7 +12,18 @@ export class AppearanceOntimizeService extends OntimizeService {
     'EVersionsSalesBudgets': '/versions-sales-budget.json',
     'ECustomer': '/customer.json',
     'EBusinessGroup': '/business-group.json',
-    'ESalesman': '/salesman.json'
+    'ESalesman': '/salesman.json',
+    'ECarrier': '/carrier.json',
+    'ETransportType': '/transport-type.json',
+    'EContact': '/contact.json',
+    'ECountries': '/countries.json',
+    'EProvinces': '/provinces.json',
+    'EDivision': '/division.json',
+    'ECarrierType': '/carrier-type.json',
+    'EShipping': '/sales-shipping.json',
+    'EIncoterm': '/inconterm.json',
+    'EStorage': '/storage.json',
+    'ESubStorage': '/substorage.json'
   };
 
   constructor(protected injector: Injector) {
@@ -22,14 +32,12 @@ export class AppearanceOntimizeService extends OntimizeService {
 
   public getDefaultServiceConfiguration(serviceName?: string): Object {
 
-    let loginService = this.injector.get(LoginService);
     let configuration = this.injector.get(AppConfig).getServiceConfiguration();
 
     let servConfig = {};
     if (serviceName && configuration.hasOwnProperty(serviceName)) {
       servConfig = configuration[serviceName];
     }
-    servConfig['session'] = loginService.getSessionInfo();
     return servConfig;
   }
 
@@ -56,7 +64,7 @@ export class AppearanceOntimizeService extends OntimizeService {
   }
 
   public query(kv?: Object, av?: Array<string>, entity?: string, sqltypes?: Object): Observable<any> {
-    console.log(entity);
+    
     var url = this._urlBase + AppearanceOntimizeService.mappings[entity];
 
     let _innerObserver: any;
