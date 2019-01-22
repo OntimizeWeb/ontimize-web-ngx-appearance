@@ -1,0 +1,102 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "ID_SUBALMACEN": 1631602,
+      "ID_ALMACEN": 1751671,
+      "COD_SUBALMACEN": "EC",
+      "DESC_SUBALMACEN": "EN CARGA",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 1,
+      "inactive": 0,
+      "guid": "CE34631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2017-12-29T09:57:09Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631603,
+      "ID_ALMACEN": 1751693,
+      "COD_SUBALMACEN": "JITMP",
+      "DESC_SUBALMACEN": "MP - MATERIA PRIMA",
+      "ENTRADA_POR_DEFECTO": 1,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "CF34631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2016-12-23T12:53:33Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631604,
+      "ID_ALMACEN": 1751693,
+      "COD_SUBALMACEN": "JITPT",
+      "DESC_SUBALMACEN": "PRODUCTO TERMINADO",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 1,
+      "inactive": 0,
+      "guid": "D034631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2016-08-18T14:57:45Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631605,
+      "ID_ALMACEN": 1751693,
+      "COD_SUBALMACEN": "JITTA",
+      "DESC_SUBALMACEN": "TALLER",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "D134631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2016-08-18T14:57:45Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631606,
+      "ID_ALMACEN": 1751671,
+      "COD_SUBALMACEN": "CUA",
+      "DESC_SUBALMACEN": "CUARENTENA",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "D234631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2016-08-18T14:57:45Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631607,
+      "ID_ALMACEN": 1751693,
+      "COD_SUBALMACEN": "JITSU",
+      "DESC_SUBALMACEN": "MP - SUELO",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "D334631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2016-08-18T14:57:45Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631608,
+      "ID_ALMACEN": 1751693,
+      "COD_SUBALMACEN": "JITAL",
+      "DESC_SUBALMACEN": "MP - ALTURA",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "D434631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2017-01-12T16:37:18Z",
+      "is_shipping_store": null
+    },
+    {
+      "ID_SUBALMACEN": 1631609,
+      "ID_ALMACEN": 1752526,
+      "COD_SUBALMACEN": "ALT_ROT",
+      "DESC_SUBALMACEN": "ALTA ROTACIÓN",
+      "ENTRADA_POR_DEFECTO": 0,
+      "SALIDA_POR_DEFECTO": 0,
+      "inactive": 0,
+      "guid": "D534631E-5465-E611-B95B-D3CAF434B327",
+      "last_update_date": "2017-04-11T14:57:23Z",
+      "is_shipping_store": 0
+    }
+  ]
+}

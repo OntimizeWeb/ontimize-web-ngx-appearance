@@ -1,0 +1,72 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "incoterm_id" : 1,
+      "incoterm_code" : "EXW",
+      "incoterm_description" : "En fábrica (lugar convenido)",
+      "incoterm_category" : "E"
+    },
+    {
+      "incoterm_id" : 2,
+      "incoterm_code" : "FAS",
+      "incoterm_description" : "Libre al costado del buque (puerto de carga convenido)",
+      "incoterm_category" : "F"
+    },
+    {
+      "incoterm_id" : 3,
+      "incoterm_code" : "FOB",
+      "incoterm_description" : "Libre a bordo (puerto de carga convenido)",
+      "incoterm_category" : "F"
+    },
+    {
+      "incoterm_id" : 4,
+      "incoterm_code" : "FCA",
+      "incoterm_description" : "Libre transportista (lugar convenido)",
+      "incoterm_category" : "F"
+    },
+    {
+      "incoterm_id" : 5,
+      "incoterm_code" : "CFR",
+      "incoterm_description" : "Coste y flete (puerto de destino convenido)",
+      "incoterm_category" : "C"
+    },
+    {
+      "incoterm_id" : 6,
+      "incoterm_code" : "CIF",
+      "incoterm_description" : "Coste, seguro y flete (puerto de destino convenido)",
+      "incoterm_category" : "C"
+    },
+    {
+      "incoterm_id" : 7,
+      "incoterm_code" : "CPT",
+      "incoterm_description" : "Transporte pagado hasta (lugar de destino convenido)",
+      "incoterm_category" : "C"
+    },
+    {
+      "incoterm_id" : 8,
+      "incoterm_code" : "CIP",
+      "incoterm_description" : "Transporte y seguro pagados hasta (lugar de destino convenido)",
+      "incoterm_category" : "C"
+    },
+    {
+      "incoterm_id" : 9,
+      "incoterm_code" : "DAT",
+      "incoterm_description" : "Entregado en terminal (puerto de destino convenido)",
+      "incoterm_category" : "D"
+    },
+    {
+      "incoterm_id" : 10,
+      "incoterm_code" : "DAP",
+      "incoterm_description" : "Entregado en un punto (lugar de destino convenido)",
+      "incoterm_category" : "D"
+    },
+    {
+      "incoterm_id" : 11,
+      "incoterm_code" : "DDP",
+      "incoterm_description" : "Entregado con derechos pagados (lugar de destino convenido)",
+      "incoterm_category" : "D"
+    }
+  ]
+}

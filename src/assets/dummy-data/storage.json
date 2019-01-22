@@ -1,0 +1,22 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "ID_ALMACEN": 1752524,
+      "COD_ALMACEN": "ALMLED",
+      "DESC_ALMACEN": "ALM. LEDISON",
+      "DIRECCION": "Dir. almacén Ledison"
+    },
+    {
+      "ID_ALMACEN": 1752527,
+      "COD_ALMACEN": "ALCVTE",
+      "DESC_ALMACEN": "ALMACEN CONSIGNA TODO ENVASES"
+    },
+    {
+      "ID_ALMACEN": 1752532,
+      "COD_ALMACEN": "Con ",
+      "DESC_ALMACEN": "Almacen consigna ventas"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "id": 1,
+      "name": "National freight model"
+    },
+    {
+      "id": 2,
+      "name": "Custom shipping model"
+    },
+    {
+      "id": 3,
+      "name": "National freight model by weight"
+    }
+  ]
+}
