@@ -114,23 +114,7 @@ export class ExtraStandardComponent implements OnInit {
       this.appearanceOntimizeService = this.injector.get(AppearanceOntimizeService);
   }
 
-  // configureService() {
-  //   let loadingService: any = OntimizeService;
-  //   try {
-  //     this.dataService = this.injector.get(loadingService);
-  //     if (Util.isDataService(this.dataService)) {
-  //       let serviceCfg = this.dataService.getDefaultServiceConfiguration();
-  //       this.dataService.configureService(serviceCfg);
-  //     }
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
-
-  onSalesBudgetsDataLoaded(data: any) {
-    console.log('cucu');
-  }
-
+ 
   ngOnInit() {
     //  this.oForm.queryData({});
     let serviceCfg = this.appearanceOntimizeService.getDefaultServiceConfiguration();
@@ -139,10 +123,9 @@ export class ExtraStandardComponent implements OnInit {
     this.appearanceOntimizeService.query({}, [], 'ESalesBudgets')
       .subscribe(
         res => {
-          console.log(res);
+       
           self.oForm._setData(res.data);
   
-          //this.filterData = res.data;
         },
         error => console.log(error)
       );

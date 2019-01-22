@@ -1,163 +1,164 @@
-<o-form fxLayout="column" show-header="yes" label-header="Presupuesto de ventas" header-actions="R;U;D" #oForm>
+<o-form #oForm fxLayout="column" show-header="yes" label-header="sales_budgets" header-actions="R;U;D" entity="ESalesBudgets"
+  service="ESalesBudgets" (onFormDataLoaded)="onSalesBudgetsDataLoaded($event)" keys="idSalesBudget">
 
   <o-row layout-gap="14px" layout-padding-vertical>
-    <o-combo fxFlex="50" attr="Empresa" value-column="id" columns="id;name" visible-columns="name" [static-data]="companyData"
-      data="1" required></o-combo>
-    <o-combo fxFlex="50" attr="División" query-on-init="no" query-on-bind="no"></o-combo>
-  </o-row>
-
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-row fxFlex="50" layout-gap="14px">
-      <o-text-input fxFlex attr="Presupuesto" data="123456789" required></o-text-input>
-      <o-currency-input fxFlex attr="totalBase2" label="Base total" data="881981.96" decimal-digits="2"
-        min-decimal-digits="2"> </o-currency-input>
-      <o-combo fxFlex attr="Versión" value-column="version" columns="version" [static-data]="versionData" data="1"></o-combo>
-    </o-row>
-    <o-text-input fxFlex="50" attr="Proforma"></o-text-input>
+    <o-combo fxFlex="0 1 calc(50% - 14px)" attr="COMPANY" value-column="id" columns="id;name" visible-columns="name"
+      required read-only="yes" entity="ECompanys"></o-combo>
+    <o-combo fxFlex="0 1 calc(50% - 14px)" attr="DIVISION" value-column="id" columns="id;name" visible-columns="name"
+      entity="EDivision"></o-combo>
   </o-row>
 
   <o-row layout-gap="14px" layout-padding-vertical>
-    <o-combo fxFlex attr="Cliente" value-column="id" columns="id;name" visible-columns="name" [static-data]="customerData"
-      data="1" enabled="no"></o-combo>
-    <o-combo fxFlex attr="Cliente facturación" value-column="id" columns="id;name" visible-columns="name" [static-data]="companyData"
-      data="1"></o-combo>
+    <o-text-input fxFlex="0 1 calc(25% - 14px)" attr="SALES_BUDGET_ID" required read-only="yes"></o-text-input>
+    <o-combo fxFlex="0 1 calc(25% - 14px)" attr="VERSION" label="VERSION" value-column="version" columns="version"
+      entity="EVersionsSalesBudgets"></o-combo>
+    <o-text-input fxFlex="0 1 calc(50% - 14px)" attr="PROFORMA" read-only="yes"></o-text-input>
+  </o-row>
+
+  <o-row layout-gap="14px" layout-padding-vertical>
+    <o-list-picker fxFlex="0 1 calc(50% - 14px)" attr="CUSTOMER_ID" value-column="id" columns="id;name" visible-columns="name"
+      entity="ECustomer" read-only="yes"></o-list-picker>
+    <o-combo fxFlex="0 1 calc(30% - 14px)" attr="BUSINESS_GROUP" value-column="id" columns="id;name" visible-columns="name"
+      entity="EBusinessGroup"></o-combo>
+    <o-checkbox fxFlex="0 1 calc(20% - 14px)" attr="CONDITIONS_APPLICANT" label="CONDITIONS_APPLICANT" read-only="yes"></o-checkbox>
+  </o-row>
+
+  <o-row layout-gap="14px" layout-padding-vertical>
+    <o-list-picker fxFlex="0 1 calc(50% - 14px)" attr="POTENCIAL" query-on-init="no" query-on-bind="no" read-only="yes"></o-list-picker>
+    <o-list-picker fxFlex="0 1 calc(50% - 14px)" attr="Cliente facturación" value-column="id" columns="id;name"
+      visible-columns="name" read-only="yes"></o-list-picker>
   </o-row>
   <o-row layout-gap="14px" layout-padding-vertical>
-    <o-combo fxFlex attr="Potencial" query-on-init="no" query-on-bind="no"></o-combo>
-    <o-checkbox fxFlex attr="condicionesSolicitante" label="Condiciones solcitante"></o-checkbox>
+
+    <o-combo fxFlex="0 1 calc(25% - 14px)" attr="SALESMAN" entity="ESalesman" value-column="id" columns="id;name;surname"
+      visible-columns="name;surname" separator=","></o-combo>
+    <o-currency-input fxFlex="0 1 calc(25% - 14px)" attr="COMMISION" decimal-digits="2" min-decimal-digits="2"
+      max-decimal-digits="2" read-only="yes"></o-currency-input>
+    <o-combo fxFlex="0 1 calc(50% - 14px)" attr="TYPE" query-on-init="no" query-on-bind="no"></o-combo>
   </o-row>
+
   <o-row layout-gap="14px" layout-padding-vertical>
-    <o-row fxFlex>
-      <o-combo fxFlex="50" attr="Tipo de oferta" value-column="id" columns="id;name" visible-columns="name"
-        [static-data]="offerTypeData" data="1" enabled="no"></o-combo>
-    </o-row>
-    <o-combo fxFlex="50" attr="Tipo" query-on-init="no" query-on-bind="no"></o-combo>
+    <o-currency-input fxFlex="0 1 calc(25% - 14px)" attr="TOTALBASE" decimal-digits="2" min-decimal-digits="2"
+      max-decimal-digits="2 " read-only="yes"></o-currency-input>
+    <o-currency-input fxFlex="0 1 calc(25% - 14px)" attr="TOTAL" decimal-digits="2" min-decimal-digits="2"
+      max-decimal-digits="2" read-only="yes"></o-currency-input>
+    <o-date-input fxFlex="0 1 calc(25% - 14px)" attr="DATE_DOCUMENT"></o-date-input>
+    <o-checkbox fxFlex="0 1 calc(25% - 14px)" attr="ACCEPTED"></o-checkbox>
   </o-row>
+
   <o-row layout-gap="14px" layout-padding-vertical>
-    <o-currency-input attr="totalBase" label="Base total" data="881981.96" decimal-digits="2" min-decimal-digits="2"
-      max-decimal-digits="2"></o-currency-input>
-    <o-currency-input attr="totalImport" label="Importe total" data="881981.96" decimal-digits="2" min-decimal-digits="2"
-      max-decimal-digits="2"></o-currency-input>
-    <o-date-input attr="fDocument" label="F. documento" [data]="date"></o-date-input>
-    <o-checkbox attr="accepted" label="Aceptado" enabled="no"></o-checkbox>
+    <o-currency-input attr="MINIMUN_AMOUNT" decimal-digits="2" min-decimal-digits="2" max-decimal-digits="2" read-only="yes"
+      fxFlex="0 1 calc(25% - 14px)"></o-currency-input>
   </o-row>
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-currency-input fxFlex="20" attr="totalBase" label="Base total" data="881981.96" decimal-digits="2"
-      min-decimal-digits="2" max-decimal-digits="2" clear-button="yes"></o-currency-input>
-    <o-date-input fxFlex attr="fDocument" label="F. documento" [data]="date" required="true" clear-button="yes"></o-date-input>
-    <o-email-input fxFlex attr="email" label="Email" data="patricia.martinez@imatia.com" clear-button="yes"></o-email-input>
-    <o-hour-input fxFlex attr="input" label="hora" data="12:00" required="true" clear-button="yes"></o-hour-input>
-    <o-list-picker fxFlex attr="listpicker3" label="List Picker" read-only="no" filter="yes" value-column="key" columns="key;value"
-      visible-columns="value"></o-list-picker>
-  </o-row>
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-nif-input attr="nif2" label="NIF" data="1111111T" read-only="no" required="yes" tooltip="This is an awesome tooltip!"
-      clear-button="yes"></o-nif-input>
-    <o-password-input attr="password3" label="Password" read-only="no" required="true" clear-button="yes">
-    </o-password-input>
-    <o-percent-input attr="percent3" label="Percentage" read-only="no" data="20" clear-button="yes"></o-percent-input>
-    <o-time-input attr="input22" label="Times" clear-button="yes"></o-time-input>
-  </o-row>
+
   <mat-tab-group>
-    <mat-tab label="Básico">
-      <o-column title="Dirección fiscal">
+    <mat-tab [label]="'BASIC' | oTranslate">
+      <o-column title="FISCAL_ADDRESS" style="height: 80px">
         <o-row layout-gap="14px" layout-padding-vertical>
-          <o-text-input fxFlex="75" attr="Dirección" enabled="no" data="C/ José Manuel Guimerá, 3-4º"></o-text-input>
-          <o-text-input fxFlex="25" attr="C.P." enabled="no" data="38003"></o-text-input>
+          <o-text-input fxFlex="75" attr="FISCAL_ADDRESS" read-only="yes"></o-text-input>
+          <o-text-input fxFlex="25" attr="FISCAL_CP" label="CP" read-only="yes"></o-text-input>
         </o-row>
-        <o-row layout-gap="14px" layout-padding-vertical>
-          <o-combo fxFlex attr="País" value-column="id" columns="id;name" visible-columns="name" [static-data]="countryData"
-            data="1" enabled="no"></o-combo>
-          <o-combo fxFlex attr="Provincia" query-on-init="no" query-on-bind="no" enabled="no"></o-combo>
-          <o-text-input fxFlex attr="Localidad" data="Tenerife" enabled="no"></o-text-input>
+        <o-row layout-gap="14px" layout-padding-top>
+          <o-combo fxFlex attr="FISCAL_COUNTRY" label="COUNTRY" value-column="id" columns="id;name" visible-columns="name"
+            entity="ECountries" read-only="yes"></o-combo>
+          <o-combo fxFlex attr="FISCAL_PROVINCE" label="PROVINCE" value-column="id" columns="id;nm" visible-columns="nm"
+            entity="EProvinces" read-only="yes"></o-combo>
+          <o-text-input fxFlex attr="FISCAL_LOCALITY" label="LOCALITY" read-only="yes"></o-text-input>
         </o-row>
       </o-column>
 
-      <o-column-collapsible title="Datos cliente">
-        <o-combo fxFlex attr="address" label="Dirección" query-on-init="no" query-on-bind="no" layout-padding-vertical></o-combo>
+      <o-column title="CLIENT_DATA">
+        <o-text-input attr="CLIENT_ADDRESS1" label="ADDRESS"></o-text-input>
         <o-row layout-gap="14px" layout-padding-vertical>
-          <o-text-input fxFlex="75" attr="address1" label="Dirección"></o-text-input>
-          <o-text-input fxFlex="75" attr="cp" label="C.P."></o-text-input>
+          <o-text-input fxFlex="75" attr="CLIENT_ADDRESS2" label="ADDRESS"></o-text-input>
+          <o-text-input fxFlex="25" attr="CLIENT_CP" label="CP"></o-text-input>
+        </o-row>
+
+        <o-row layout-gap="14px" layout-padding-vertical>
+          <o-combo fxFlex attr="CLIENT_COUNTRY" label="COUNTRY" value-column="id" columns="id;name" visible-columns="name"
+            entity="ECountries" clear-button="yes"></o-combo>
+          <o-combo fxFlex attr="CLIENT_PROVINCE" label="PROVINCE" value-column="id" columns="id;nm" visible-columns="nm"
+            entity="EProvinces" clear-button="yes"></o-combo>
+          <o-text-input fxFlex attr="CLIENT_LOCALITY" label="LOCALITY"></o-text-input>
+        </o-row>
+
+        <o-list-picker attr="CLIENT_CONTACT" value-column="id" columns="id;name;surname" visible-columns="name;surname"
+          separator="," entity="EContact" fxFlex="50"></o-list-picker>
+      </o-column>
+      <o-column title="TRANSPORTATION_DATA">
+        <o-row layout-gap="14px" layout-padding-vertical>
+          <o-combo fxFlex="50" attr="CARRIER_TYPE" value-column="id" columns="id;name" visible-columns="name" separator=","
+            clear-button="yes" entity="ECarrierType"></o-combo>
+          <o-combo fxFlex="50" attr="CONSIGNMENT_MODEL" value-column="id" columns="id;name" visible-columns="name"
+            clear-button="yes" entity="ETransportType"></o-combo>
         </o-row>
         <o-row layout-gap="14px" layout-padding-vertical>
-          <o-combo fxFlex attr="country" label="País" query-on-init="no" query-on-bind="no"></o-combo>
-          <o-combo fxFlex attr="province" label="Provincia" query-on-init="no" query-on-bind="no" enabled="no"></o-combo>
-          <o-text-input fxFlex attr="locality" label="Localidad"></o-text-input>
+          <o-list-picker fxFlex="50" attr="CARRIER" value-column="id" columns="id;name;surname" visible-columns="name;surname"
+            separator="," entity="ECarrier"></o-list-picker>
+          <o-text-input fxFlex attr="PLATE"></o-text-input>
+          <o-text-input fxFlex attr="CARRIER_REF"></o-text-input>
         </o-row>
-        <o-row layout-gap="14px" layout-padding-vertical>
-          <o-combo fxFlex attr="Contacto" query-on-init="no" query-on-bind="no"></o-combo>
-        </o-row>
-      </o-column-collapsible>
-      <o-column title="Datos transporte">
-        <o-row layout-gap="14px" layout-padding-vertical>
-          <o-combo fxFlex="33" attr="Tipo de transporte" value-column="id" columns="id;name" visible-columns="name"
-            [static-data]="transportType" data="1"></o-combo>
-          <o-text-input fxFlex attr="Kilos" data="0"></o-text-input>
-          <o-integer-input fxFlex attr="m3" data="0"></o-integer-input>
-          <o-integer-input fxFlex attr="Bultos" data="0"></o-integer-input>
-        </o-row>
-        <o-row layout-gap="14px" layout-padding-vertical>
-          <o-combo fxFlex="33" attr="Transportista" query-on-init="no" query-on-bind="no"></o-combo>
-          <o-text-input fxFlex attr="Matrícula"></o-text-input>
-          <o-text-input fxFlex attr="Ref. transportista"></o-text-input>
+        <o-row layout-padding-top layout-gap="14px">
+          <o-text-input fxFlex attr="KILOS" data="0"></o-text-input>
+          <o-integer-input fxFlex attr="M3" data="0"></o-integer-input>
+          <o-integer-input fxFlex attr="PACKAGES" data="0"></o-integer-input>
+          <o-integer-input fxFlex attr="PALLETS" data="0"></o-integer-input>
         </o-row>
       </o-column>
-      <o-row title="Incoterm" layout-gap="14px">
-        <o-combo fxFlex attr="Incoterm" query-on-init="no" query-on-bind="no"></o-combo>
-        <o-text-input fxFlex attr="Lugar de entrega"></o-text-input>
+      <o-row title="INCOTERM" layout-gap="14px">
+        <o-list-picker fxFlex attr="INCOTERM " value-column="incoterm_id" columns="incoterm_id;incoterm_description;incoterm_code"
+          visible-columns="incoterm_code;incoterm_description" separator=" -  " entity="EIncoterm"></o-list-picker>
+        <o-text-input fxFlex attr="PLACE_DELIVERY"></o-text-input>
       </o-row>
       <o-row layout-gap="14px" layout-padding-vertical>
-        <o-column fxFlex title="Oferta cliente">
-          <o-textarea-input attr="Oferta cliente"></o-textarea-input>
+        <o-column fxFlex title="CUSTOMER_OFFER">
+          <o-textarea-input attr="CUSTOMER_OFFER"></o-textarea-input>
         </o-column>
-        <o-column fxFlex title="Observaciones">
-          <o-textarea-input attr="Observaciones"></o-textarea-input>
+        <o-column fxFlex title="OBSERVATIONS">
+          <o-textarea-input attr="OBSERVATIONS"></o-textarea-input>
         </o-column>
       </o-row>
     </mat-tab>
-    <mat-tab label="Gestión"></mat-tab>
-    <mat-tab label="Líneas">
-      <mat-tab-group>
-        <mat-tab label="Líneas">
-          <o-row>
-            <o-column fxFlex title="Descuentos">
-              <o-combo fxFlex attr="Dto. general" query-on-init="no" query-on-bind="no"></o-combo>
-              <o-row>
-                <o-checkbox fxFlex attr="defineTotalAmount" label="Definir importe total"></o-checkbox>
-                <o-currency-input fxFlex attr="totalAmountDefined" label="Importe total definido" enabled="no"></o-currency-input>
-              </o-row>
-            </o-column>
-            <o-column fxFlex title="Agencia">
-              <o-row>
-                <o-percent-input fxFlex attr="Margen agencia" decimal-digits="2" data="25"></o-percent-input>
-                <o-percent-input fxFlex attr="Margen negociación" decimal-digits="2" data="5"></o-percent-input>
-              </o-row>
-              <o-percent-input fxFlex="50" attr="Comisión" decimal-digits="2" data="1"></o-percent-input>
-            </o-column>
-          </o-row>
-          <o-row>
-            <span fxFlex></span>
+    <mat-tab [label]="'LINES' | oTranslate">
+      <div>
+        <o-row layout-gap="14px" layout-padding-vertical>
+          <o-column fxFlex="50" title="DISCOUNTS">
+            <o-combo fxFlex attr="GENERAL_DISCOUNT" query-on-init="no" query-on-bind="no"></o-combo>
+            <o-row layout-gap="14px">
+              <o-checkbox fxFlex attr="defineTotalAmount" label="DEFINE_TOTAL_AMOUNT"></o-checkbox>
+              <o-currency-input fxFlex attr="totalAmountDefined" label="TOTAL_AMOUNT_DEFINED" enabled="no"></o-currency-input>
+            </o-row>
+          </o-column>
+          <o-column fxFlex="50">
+            <o-row fxFlex title="MARGINS" layout-gap="14px">
+              <o-percent-input fxFlex="50" attr="MARGINAGENCY" decimal-digits="2"></o-percent-input>
+              <o-percent-input fxFlex="50" attr="MARGINTRANSATION" decimal-digits="2"></o-percent-input>
+            </o-row>
 
-            <o-column fxFlex title="Distribuidor">
-              <o-percent-input fxFlex="50" attr="Descuentro distribuidor" decimal-digits="2" data="0"></o-percent-input>
-            </o-column>
-          </o-row>
-          <o-table attr="accounts" title="Artículos" [static-data]="tableData" query-on-init="no" columns="ID;COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
-            visible-columns="COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
-            row-height="small">
-
-            <o-table-column attr="PHOTO" orderable="no" searchable="no">
-              <o-table-cell-renderer-integer>
-              </o-table-cell-renderer-integer>
-            </o-table-column>
-
-
-          </o-table>
-        </mat-tab>
-        <mat-tab label="Resumen"></mat-tab>
-      </mat-tab-group>
+            <o-row fxFlex title="Almacen" layout-gap="14px">
+              <o-combo attr="STORAGE" value-column="COD_ALMACEN" columns="COD_ALMACEN;DESC_ALMACEN" visible-columns="COD_ALMACEN;DESC_ALMACEN"
+                separator=" - " entity="EStorage" fxFlex="50"></o-combo>
+              <o-combo attr="SUBSTORAGE" value-column="COD_SUBALMACEN" columns="COD_SUBALMACEN;DESC_SUBALMACEN"
+                visible-columns="COD_SUBALMACEN;DESC_SUBALMACEN" separator=" - " entity="ESubStorage" fxFlex="50"></o-combo>
+            </o-row>
+          </o-column>
+        </o-row>
+        <o-table attr="accounts" title="Artículos" [static-data]="tableData" query-on-init="no" columns="ID;COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
+          visible-columns="COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
+          row-height="small">
+          <o-table-columns-filter columns="COD_ARTICULO;CANTIDAD"></o-table-columns-filter>
+          <o-table-column attr="COD_ARTICULO" width="70px"></o-table-column>
+          <o-table-column attr="CANTIDAD" width="50px" type="real"></o-table-column>
+          <o-table-column attr="CANTIDAD_REAL" width="50px" type="real"></o-table-column>
+          <o-table-column attr="PRECIO_UNITARIO" type="currency"></o-table-column>
+          <o-table-column attr="IMPORTE_UNITARIO_NETO" type="currency"></o-table-column>
+          <o-table-column attr="IMPORTE_BRUTO" type="currency"></o-table-column>
+          <o-table-column attr="BASE_IMPONIBLE" type="currency"></o-table-column>
+          <o-table-column attr="IMPORTE_TOTAL" type="currency"></o-table-column>
+          <o-table-column attr="IMPORTE_NETO" type="currency"></o-table-column>
+        </o-table>
+      </div>
     </mat-tab>
-    <mat-tab label="Adicional"></mat-tab>
-    <mat-tab label="Ficheros"></mat-tab>
   </mat-tab-group>
+
 </o-form>

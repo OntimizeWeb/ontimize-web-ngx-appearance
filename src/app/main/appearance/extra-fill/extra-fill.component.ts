@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector, ViewChild } from '@angular/core';
+import { AppearanceOntimizeService } from 'app/shared/services/appearance-ontimize.service';
+import { OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'extra-fill-component',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ExtraFillComponent implements OnInit {
-
+  @ViewChild('oForm') oForm: OFormComponent;
   companyData: Array<Object> = [{
     id: 1,
     name: 'Gestión del Valor y Soluciones, S.L.'
@@ -114,7 +116,25 @@ export class ExtraFillComponent implements OnInit {
   ];
 
   date: Date = new Date('October 13, 2016 11:13:00');
-  constructor() { }
+  protected appearanceOntimizeService: AppearanceOntimizeService;
+  constructor(
+    protected injector: Injector) {
 
-  ngOnInit() { }
+    this.appearanceOntimizeService = this.injector.get(AppearanceOntimizeService);
+  }
+
+
+  ngOnInit() {
+    //  this.oForm.queryData({});
+    let serviceCfg = this.appearanceOntimizeService.getDefaultServiceConfiguration();
+    this.appearanceOntimizeService.configureService(serviceCfg);
+    let self = this;
+    this.appearanceOntimizeService.query({}, [], 'ESalesBudgets')
+      .subscribe(
+        res => {
+          self.oForm._setData(res.data);
+        },
+        error => console.log(error)
+      );
+  }
 }

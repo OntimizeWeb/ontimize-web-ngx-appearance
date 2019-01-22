@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { OntimizeWebModule } from 'ontimize-web-ngx';
+import { OntimizeWebModule, O_MAT_ERROR_OPTIONS } from 'ontimize-web-ngx';
 import { SharedModule } from '../../../shared/shared.module';
 import { ExtraStandardRoutingModule } from './extra-standard-routing.module';
 import { ExtraStandardComponent } from './extra-standard.component';
@@ -11,9 +11,9 @@ import { ExtraStandardComponent } from './extra-standard.component';
     OntimizeWebModule,
     ExtraStandardRoutingModule
   ],
-  declarations: [ExtraStandardComponent ],
+  declarations: [ExtraStandardComponent],
   providers: [
-   // { provide: O_MAT_ERROR_OPTIONS, useValue: { type: 'lite' } }
+    { provide: O_MAT_ERROR_OPTIONS, useValue: { type: 'lite' } }
   ]
 })
 export class ExtraStandardModule { }

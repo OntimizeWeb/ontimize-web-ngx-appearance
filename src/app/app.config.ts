@@ -7,20 +7,17 @@ import { AppearanceOntimizeService } from './shared/services/appearance-ontimize
 
 export const CONFIG: Config = {
   // The base path of the URL used by app services.
-  apiEndpoint: environment.apiEndpoint,
+  apiEndpoint: 'https://try.ontimize.com/QSAllComponents/rest',
   // apiEndpoint: 'http://10.7.0.147:9080/qsallcomponents-jee/services/rest',
 
   // Application identifier. Is the unique package identifier of the app.
   // It is used when storing or managing temporal data related with the app.
   // By default is set as 'ontimize-web-uuid'.
-  uuid: 'com.ontimize.web.ngx.jee.seed',
+  uuid: 'com.ontimize.web.ngx.appearance',
 
-  bundle: {
-    path: 'bundle'
-  },
 
   // Title of the app
-  title: 'JEE seed',
+  title: 'Ontimize web appearance',
 
   //  Language of the application.
   locale: 'en',
@@ -40,5 +37,4 @@ export const CONFIG: Config = {
     service: 'test'
   },
 
-  permissionsServiceType: 'OntimizeEEPermissions'
 };

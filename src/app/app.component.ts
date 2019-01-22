@@ -7,10 +7,8 @@ import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  }
 
 }
