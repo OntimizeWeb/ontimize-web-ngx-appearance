@@ -1,0 +1,12 @@
+@import 'node_modules/@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+$primary: mat-palette($mat-brown);
+$accent:  mat-palette($mat-orange, A200, A100, A400);
+
+//$theme: mat-light-theme($primary, $accent);
+$theme: mat-dark-theme($primary, $accent);
+
+@import '../css/app.scss';
