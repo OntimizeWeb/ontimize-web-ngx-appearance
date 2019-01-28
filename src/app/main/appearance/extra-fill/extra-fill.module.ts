@@ -13,9 +13,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
     ExtraFillRoutingModule
   ],
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
-   // { provide: O_MAT_ERROR_OPTIONS, useValue: { type: 'lite' } }
-
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
   ],
   declarations: [ExtraFillComponent]
 })

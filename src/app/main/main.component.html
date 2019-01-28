@@ -1,5 +1,10 @@
-<o-app-layout show-header="no" use-flag-icons="no" opened-sidenav-image="assets/images/sidenav-opened.png"
-  closed-sidenav-image="assets/images/sidenav-closed.png">
-
+<o-app-layout show-header="yes" use-flag-icons="no" opened-sidenav-image="assets/images/sidenav-opened.png"
+  closed-sidenav-image="assets/images/sidenav-closed.png" show-language-selector="no"  [class.app-dark]="themePicker.isDarkTheme">
+  <o-app-layout-header fxFill>
+    <div fxLayout="row" fxLayoutAlign="end center" >
+      <theme-picker #themePicker ></theme-picker>
+    </div>
+  </o-app-layout-header>
   <router-outlet></router-outlet>
+
 </o-app-layout>

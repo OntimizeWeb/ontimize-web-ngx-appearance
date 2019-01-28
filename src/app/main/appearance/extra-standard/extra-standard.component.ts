@@ -14,7 +14,7 @@ export class ExtraStandardComponent implements OnInit {
     id: 1,
     name: 'Gestión del Valor y Soluciones, S.L.'
   }];
-  
+
   customerData: Array<Object> = [{
     id: 1,
     name: 'TAGUA'
@@ -106,15 +106,15 @@ export class ExtraStandardComponent implements OnInit {
 
   date: Date = new Date('October 13, 2016 11:13:00');
   protected dataService: any;
-  
+
   protected appearanceOntimizeService: AppearanceOntimizeService;
   constructor(
     protected injector: Injector) {
-      
-      this.appearanceOntimizeService = this.injector.get(AppearanceOntimizeService);
+
+    this.appearanceOntimizeService = this.injector.get(AppearanceOntimizeService);
   }
 
- 
+
   ngOnInit() {
     //  this.oForm.queryData({});
     let serviceCfg = this.appearanceOntimizeService.getDefaultServiceConfiguration();
@@ -123,9 +123,9 @@ export class ExtraStandardComponent implements OnInit {
     this.appearanceOntimizeService.query({}, [], 'ESalesBudgets')
       .subscribe(
         res => {
-       
+
           self.oForm._setData(res.data);
-  
+
         },
         error => console.log(error)
       );

@@ -1,6 +1,7 @@
 import { Component, OnInit, Injector, ViewChild } from '@angular/core';
-import { AppearanceOntimizeService } from 'app/shared/services/appearance-ontimize.service';
+
 import { OFormComponent } from 'ontimize-web-ngx';
+import { AppearanceOntimizeService } from '../../../shared/services/appearance-ontimize.service';
 
 @Component({
   selector: 'extra-fill-component',
