@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { OFormComponent } from 'ontimize-web-ngx';
-import { AppearanceOntimizeService } from 'app/shared/services/appearance-ontimize.service';
+import { AppearanceOntimizeService } from '../../../shared/services/appearance-ontimize.service';
+
 
 @Component({
   selector: 'extra-outline-component',

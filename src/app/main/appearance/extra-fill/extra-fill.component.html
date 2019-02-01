@@ -1,5 +1,5 @@
 <o-form #oForm fxLayout="column" show-header="yes" label-header="sales_budgets" header-actions="R;U;D" entity="ESalesBudgets"
-  service="ESalesBudgets" (onFormDataLoaded)="onSalesBudgetsDataLoaded($event)" keys="idSalesBudget">
+  service="ESalesBudgets" keys="idSalesBudget">
 
   <o-row layout-gap="14px" layout-padding-vertical>
     <o-combo fxFlex="50" attr="COMPANY" value-column="id" columns="id;name" visible-columns="name" required enabled="no"

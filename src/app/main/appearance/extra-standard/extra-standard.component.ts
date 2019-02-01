@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector, ViewChild } from '@angular/core';
-import { OntimizeService, Util, OFormComponent } from 'ontimize-web-ngx';
-import { AppearanceOntimizeService } from 'app/shared/services/appearance-ontimize.service';
+import { OFormComponent } from 'ontimize-web-ngx';
+import { AppearanceOntimizeService } from '../../../shared/services/appearance-ontimize.service';
 
 @Component({
   selector: 'extra-standard-component',
@@ -116,7 +116,7 @@ export class ExtraStandardComponent implements OnInit {
 
 
   ngOnInit() {
-    //  this.oForm.queryData({});
+
     let serviceCfg = this.appearanceOntimizeService.getDefaultServiceConfiguration();
     this.appearanceOntimizeService.configureService(serviceCfg);
     let self = this;
