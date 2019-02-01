@@ -5,8 +5,6 @@
 
 $primary: mat-palette($mat-teal);
 $accent:  mat-palette($mat-amber, A200, A100, A400);
-
-$theme: mat-light-theme($primary, $accent);
-$dark-theme: mat-dark-theme($primary, $accent);
+$theme: mat-dark-theme($primary, $accent);
 
 @import '../css/app.scss';
