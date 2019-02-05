@@ -7,10 +7,11 @@
     "xxx": "rimraf node_modules/ontimize-web-ngx* && npm install",
     "zzz": "npm run xxx && npm start",
     "ng": "ng",
-    "start": "ng serve --port 4298 ---host 10.7.0.190",
-    "production": "ng build --aot=false --target -prod",
-    "production-aot": "ontimize-web-ngx production-aot --href /ontimize-web-ngx-appearance/",
-    "production-aot-server": "ontimize-web-ngx production-aot --href /"
+    "start": "npm run build-theme && ng serve --port 4298 ---host 10.7.0.190",
+    "production": "npm run build-theme && ng build --aot=false --target -prod",
+    "production-aot": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /appearance/",
+    "production-aot-server": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /ontimizeweb/appearance/",
+    "build-theme": "node-sass ./src/assets/custom-themes/ -o ./src/assets/custom-themes/ --recursive"
   },
   "private": true,
   "dependencies": {
@@ -35,12 +36,10 @@
     "reflect-metadata": "0.1.12",
     "rxjs": "6.3.3",
     "zone.js": "0.8.26",
-    "ontimize-web-ngx": "4.0.0-rc.1",
+    "ontimize-web-ngx": "D:/angular 6/ontimize-web-ngx-4.x.x/dist/ontimize-web-ngx-4.0.0-rc.2.tgz",
     "ontimize-web-ngx-charts": "4.0.0-rc.0",
     "ontimize-web-ngx-filemanager": "4.0.0-rc.0",
-    "ontimize-web-ngx-theming": "4.0.0-rc.1",
-    "intl": "^1.2.5",
-    "web-animations-js": "^2.3.1"
+    "ontimize-web-ngx-theming": "D:/angular 6/ontimize-web-ngx-theming-4.x.x/dist/ontimize-web-ngx-theming-4.0.0-rc.2.tgz"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
@@ -55,6 +54,7 @@
     "ontimize-web-ngx-tools": "4.0.0-rc.0",
     "ts-node": "~2.0.0",
     "typescript": "2.9.2",
-    "webpack": "4.18.0"
+    "webpack": "4.18.0",
+    "webpack-cli": "3.1.0"
   }
 }
