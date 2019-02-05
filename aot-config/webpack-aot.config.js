@@ -1,103 +1,88 @@
-const helpers = require('./helpers');
-const path = require('path');
-const webpack = require('webpack');
-const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-const ngToolsWebpack = require('@ngtools/webpack');
-const { GlobCopyWebpackPlugin } = require('@angular/cli/plugins/webpack');
-const CompressionPlugin = require("compression-webpack-plugin");
+var AngularCompilerPlugin = require("@ngtools/webpack").AngularCompilerPlugin;
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var CompressionPlugin = require("compression-webpack-plugin");
+var ProgressPlugin = require("webpack/lib/ProgressPlugin");
+var GlobCopyWebpackPlugin = require("copy-webpack-plugin");
 
-const config = {
+var webpack = require("webpack");
+var helpers = require("./helpers");
+
+module.exports = {
+  mode: "production",
+  devtool: "nosources-source-map",
+  // devtool: "source-map",
+
   entry: {
-    main: helpers.root('tmp-src/main-aot.ts'),
-    polyfills: helpers.root('tmp-src/polyfills.ts'),
-    vendor: helpers.root('tmp-src/vendor-aot.ts'),
-    scripts: APP_SCRIPTS
+    main: helpers.root("tmp-src/main.ts"),
+    polyfills: helpers.root("tmp-src/polyfills.ts")
   },
 
   output: {
-    path: helpers.root('dist'),
-    filename: '[name].[chunkhash].bundle.js',
-    sourceMapFilename: '[name].[chunkhash].bundle.map',
-    chunkFilename: '[id].[chunkhash].chunk.js'
+    path: helpers.root("dist"),
+    filename: "[name].[chunkhash].js"
   },
 
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: [".js", ".ts"]
   },
 
   module: {
     rules: [
-      { test: /\.ts$/, loader: '@ngtools/webpack', exclude: /\.node_modules/ },
-      { test: /\.(html|css)$/, loader: 'raw-loader', exclude: /\.async\.(html|css)$/ },
-      { test: /\.scss$/, loaders: ['raw-loader', 'sass-loader'] }
+      // I provide a TypeScript compiler that performs Ahead of Time (AoT)
+      // compilation for the Angular application and TypeScript code.
+      {
+        test: /(\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+        loader: "@ngtools/webpack",
+        exclude: /\.node_modules/
+      },
+      // When the @ngtools webpack loader runs, it will replace the @Component()
+      // "templateUrl" and "styleUrls" with inline "require()" calls. As such, we
+      // need the raw-loader so that require() will know how to load .htm and .css
+      // files as plain-text.
+      { test: /\.(html|css)$/, loader: "raw-loader", exclude: /\.async\.(html|css)$/ },
+      { test: /\.scss$/, loaders: ["raw-loader", "sass-loader"] }
     ]
   },
+
+  optimization: {
+    splitChunks: {
+      // Apply optimizations to all chunks, even initial ones (not just the
+      // ones that are lazy-loaded).
+      chunks: "all",
+      cacheGroups: {
+        commons: { test: /[\\/]node_modules[\\/]/, name: "vendors", chunks: "all" }
+      }
+    },
+    // I pull the Webpack runtime out into its own bundle file so that the
+    // contentHash of each subsequent bundle will remain the same as long as the
+    // source code of said bundles remain the same.
+    // runtimeChunk: "single"
+    runtimeChunk: true
+  },
   plugins: [
+    new GlobCopyWebpackPlugin([
+      { context: "src", from: "assets/css/**/*", to: "./", ignore: ["app.scss"] },
+      { context: "src", from: "assets/custom-themes/**/*", to: "./", ignore: ["*.scss"] },
+      { context: "src", from: "assets/i18n/**/*", to: "./" },
+      { context: "src", from: "assets/images/**/*", to: "./" },
+      { from: "src/favicon.ico", to: "./" }
+    ]),
+
     new ProgressPlugin(),
 
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['main', 'scripts', 'vendor', 'polyfills']
-    }),
-
-    new CommonsChunkPlugin({
-      "name": ["inline"],
-      "minChunks": null
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: function (module) {
-        return module.context && module.context.indexOf("node_modules") !== -1;
-      },
-      "chunks": ["main"]
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "manifest",
-      minChunks: Infinity
-    }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      "name": ["main"],
-      "minChunks": 2,
-      "async": "common"
-    }),
-
-    new ngToolsWebpack.AotPlugin({
-      tsConfigPath: helpers.root('tsconfig.aot.json'),
-      entryModule: helpers.root('tmp-src/app/app.module#AppModule')
+    new AngularCompilerPlugin({
+      tsConfigPath: helpers.root("tsconfig.aot.json"),
+      mainPath: helpers.root("tmp-src/main.ts"),
+      sourceMap: true
     }),
 
     new HtmlWebpackPlugin({
-      template: helpers.root('aot-config/index.ejs')
+      template: helpers.root("aot-config/index.ejs"),
+      chunksSortMode: "manual",
+      chunks: ["polyfills", "vendors", "main"]
     }),
 
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      beautify: false,
-      output: {
-        comments: false
-      },
-      mangle: {
-        keep_fnames: true,
-        screw_ie8: true
-      },
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        negate_iife: false // we need this for lazy v8
-      }
-    }),
+    new webpack.HashedModuleIdsPlugin(),
 
     new CompressionPlugin({
       asset: "[path].gz[query]",
@@ -105,27 +90,6 @@ const config = {
       test: /\.js$|\.html$/,
       threshold: 10240,
       minRatio: 0.8
-    }),
-
-    new GlobCopyWebpackPlugin({
-      "patterns": [
-        "assets/css/loader.css",
-        "assets/i18n",
-        "assets/images",
-        "favicon.ico",
-        {
-          "glob": "**/*",
-          "input": "../node_modules/flag-icon-css/flags/",
-          "output": "./assets/flags"
-        }
-      ],
-      "globOptions": {
-        "cwd": path.join(process.cwd(), "src"),
-        "dot": true,
-        "ignore": "**/.gitkeep"
-      }
     })
   ]
 };
-
-module.exports = config;

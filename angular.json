@@ -27,23 +27,10 @@
             ],
             "styles": [
               "node_modules/ontimize-web-ngx/ontimize.scss",
-              {
-                "input": "src/assets/custom-themes/mat-brown-orange.scss",
-                "lazy": true,
-                "bundleName": "mat-brown-orange"
-              },
-              {
-                "input": "src/assets/custom-themes/mat-teal-amber.scss",
-                "lazy": true,
-                "bundleName": "/mat-teal-amber"
-              },
-              {
-                "input": "src/assets/custom-themes/mat-bluegrey-deeporange.scss",
-                "lazy": true,
-                "bundleName": "mat-bluegrey-deeporange"
-              },
+              "src/assets/custom-themes/mat-brown-orange.scss",
+              "src/assets/custom-themes/mat-teal-amber.scss",
+              "src/assets/custom-themes/mat-bluegrey-deeporange.scss",
 
-              "src/assets/css/app.scss",
               "src/styles.scss"
             ],
             "scripts": [
@@ -101,22 +88,11 @@
             ],
             "styles": [
               "node_modules/ontimize-web-ngx/ontimize.scss",
-              {
-                "input": "src/assets/custom-themes/mat-brown-orange.scss",
-                "lazy": true,
-                "bundleName": "mat-brown-orange"
-              },
-              {
-                "input": "src/assets/custom-themes/mat-teal-amber.scss",
-                "lazy": true,
-                "bundleName": "/mat-teal-amber"
-              },
-              {
-                "input": "src/assets/custom-themes/mat-bluegrey-deeporange.scss",
-                "lazy": true,
-                "bundleName": "mat-bluegrey-deeporange"
-              },
-              "src/assets/css/app.scss",
+              "src/assets/custom-themes/mat-brown-orange.scss",
+              "src/assets/custom-themes/mat-teal-amber.scss",
+              "src/assets/custom-themes/mat-bluegrey-deeporange.scss",
+
+
               "src/styles.scss"
             ],
             "assets": [
