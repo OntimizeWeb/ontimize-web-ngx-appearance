@@ -1,8 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
 @import 'node_modules/@angular/material/theming';
-
 // Include non-theme styles for core.
 @include mat-core();
+
 /* Color definitions */
 $mat-custom-primary: (
   50 : #e5e5e5,
@@ -79,4 +78,4 @@ $accent:  mat-palette($mat-custom-accent);
 /* Light theme */
 $theme: mat-light-theme($primary, $accent);
 
-@import './assets/css/app.scss';
+@import '../css/app.scss';
