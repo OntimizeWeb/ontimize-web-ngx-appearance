@@ -4,11 +4,6 @@
 /dist
 /tmp
 /tmp-src
-*.ngfactory.ts
-*.ngsummary.json
-*.ngstyle.ts
-*.d.ts
-/aot-config/*_original.*
 
 # dependencies
 /node_modules
