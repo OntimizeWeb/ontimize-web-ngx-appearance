@@ -79,7 +79,7 @@ export class ThemePicker {
 
   installTheme(theme: DocsSiteTheme) {
     this.currentTheme = this._getCurrentThemeFromHref(theme.href);
-    const dark = this.toggleDark.checked;
+    const dark = this.isDarkTheme;
 
     if (theme.isDefault) {
       if (dark) {
