@@ -7,7 +7,7 @@
     "xxx": "rimraf node_modules/ontimize-web-ngx* && npm install",
     "zzz": "npm run xxx && npm start",
     "ng": "ng",
-    "start": "npm run build-theme && ng serve --port 4408",
+    "start": "npm run build-theme && ng serve --port 4410",
     "production": "npm run build-theme && ng build --aot=false --target -prod",
     "production-aot": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /appearance/",
     "production-aot-server": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /ontimizeweb/appearance/v4/",
