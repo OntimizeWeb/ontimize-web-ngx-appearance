@@ -23,7 +23,8 @@ export class AppearanceOntimizeService extends OntimizeService {
     'EShipping': '/sales-shipping.json',
     'EIncoterm': '/inconterm.json',
     'EStorage': '/storage.json',
-    'ESubStorage': '/substorage.json'
+    'ESubStorage': '/substorage.json',
+    'ELines': '/table-data.json'
   };
 
   constructor(protected injector: Injector) {

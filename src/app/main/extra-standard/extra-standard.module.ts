@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { OntimizeWebModule, O_MAT_ERROR_OPTIONS } from 'ontimize-web-ngx';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { ExtraStandardRoutingModule } from './extra-standard-routing.module';
 import { ExtraStandardComponent } from './extra-standard.component';
 
