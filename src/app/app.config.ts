@@ -1,8 +1,6 @@
 import { Config } from 'ontimize-web-ngx';
-
 import { SERVICE_CONFIG } from './shared/app.services.config';
 import { MENU_CONFIG } from './shared/app.menu.config';
-import { environment } from '../environments/environment';
 import { AppearanceOntimizeService } from './shared/services/appearance-ontimize.service';
 
 export const CONFIG: Config = {
@@ -33,8 +31,6 @@ export const CONFIG: Config = {
 
   applicationLocales: ['es', 'en'],
 
-  permissionsConfiguration: {
-    service: 'test'
-  },
+
 
 };

@@ -62,6 +62,7 @@ module.exports = {
     new GlobCopyWebpackPlugin([
       { context: "src", from: "assets/css/**/*", to: "./", ignore: ["app.scss"] },
       { context: "src", from: "assets/custom-themes/**/*", to: "./", ignore: ["*.scss"] },
+      { context: "src", from: "assets/dummy-data/**/*", to: "./" },
       { context: "src", from: "assets/i18n/**/*", to: "./" },
       { context: "src", from: "assets/images/**/*", to: "./" },
       { from: "src/favicon.ico", to: "./" }
