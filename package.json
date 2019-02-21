@@ -8,7 +8,7 @@
     "start": "npm run build-theme && ng serve --port 4410",
     "production": "npm run build-theme && ng build --aot=false --target -prod",
     "production-aot": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /appearance/",
-    "production-aot-server": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /ontimizeweb/v4/appearance/",
+    "production-aot-server": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /ontimizeweb/appearance/",
     "build-theme": "node-sass ./src/assets/custom-themes/ -o ./src/assets/custom-themes/ --recursive"
   },
   "private": true,
