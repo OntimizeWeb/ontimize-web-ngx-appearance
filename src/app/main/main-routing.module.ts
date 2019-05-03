@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuardService } from 'ontimize-web-ngx';
-
 import { MainComponent } from './main.component';
-
-
-
 import { HomeModule } from './home/home.module';
-
-import { AppearanceModule } from './appearance/appearance.module';
+import { ExtraStandardModule } from './extra-standard/extra-standard.module';
+import { ExtraFillModule } from './extra-fill/extra-fill.module';
+import { ExtraOutlineModule } from './extra-outside/extra-outline.module';
 
 export function loadHomeModule() {
   return HomeModule;
 }
 
-export function loadAppearanceModule() {
-  return AppearanceModule;
+export function loadStandardModule() {
+  return ExtraStandardModule;
+}
+
+export function loadFillModule() {
+  return ExtraFillModule;
+}
+
+export function loadOutsideModule() {
+  return ExtraOutlineModule;
 }
 
 export const routes: Routes = [
@@ -25,7 +29,9 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: loadHomeModule },
-      { path: 'appearance', loadChildren: loadAppearanceModule }
+      { path: 'standard', loadChildren: loadStandardModule },
+      { path: 'fill', loadChildren: loadFillModule },
+      { path: 'outline', loadChildren: loadOutsideModule }
     ]
   }
 ];

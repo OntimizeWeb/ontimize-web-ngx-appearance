@@ -160,19 +160,19 @@
             </o-row>
           </o-column>
         </o-row>
-        <o-table attr="accounts" title="Artículos" [static-data]="tableData" query-on-init="no" columns="ID;COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
+        <o-table attr="accounts" title="Artículos" service="ELines" entity="ELines" query-on-init="no" columns="ID;COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
           visible-columns="COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"
-          row-height="medium">
+          row-height="small">
           <o-table-columns-filter columns="COD_ARTICULO;DESCRIPCION;CANTIDAD;CANTIDAD_REAL;TARIFA;PRECIO_UNITARIO;IMPORTE_UNITARIO_NETO;IMPORTE_BRUTO;IMPORTE_NETO;BASE_IMPONIBLE;IMPORTE_TOTAL"></o-table-columns-filter>
           <o-table-column attr="COD_ARTICULO"></o-table-column>
           <o-table-column attr="CANTIDAD" type="real"></o-table-column>
           <o-table-column attr="CANTIDAD_REAL" type="real"></o-table-column>
-          <o-table-column attr="PRECIO_UNITARIO" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
-          <o-table-column attr="IMPORTE_UNITARIO_NETO" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
-          <o-table-column attr="IMPORTE_BRUTO" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
-          <o-table-column attr="BASE_IMPONIBLE" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
-          <o-table-column attr="IMPORTE_TOTAL" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
-          <o-table-column attr="IMPORTE_NETO" type="currency" currency-symbol="€" currency-symbol-position="right"></o-table-column>
+          <o-table-column attr="PRECIO_UNITARIO" type="currency" currency-symbol="€"></o-table-column>
+          <o-table-column attr="IMPORTE_UNITARIO_NETO" type="currency" currency-symbol="€"></o-table-column>
+          <o-table-column attr="IMPORTE_BRUTO" type="currency" currency-symbol="€"></o-table-column>
+          <o-table-column attr="BASE_IMPONIBLE" type="currency" currency-symbol="€"></o-table-column>
+          <o-table-column attr="IMPORTE_TOTAL" type="currency" currency-symbol="€"></o-table-column>
+          <o-table-column attr="IMPORTE_NETO" type="currency" currency-symbol="€"></o-table-column>
         </o-table>
 
       </div>

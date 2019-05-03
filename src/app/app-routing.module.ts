@@ -7,8 +7,8 @@ export function loadMainModule() {
 }
 
 export const routes: Routes = [
-  { path: 'main', loadChildren: loadMainModule },
-  { path: '', redirectTo: 'main', pathMatch: 'full' }
+  { path: '', loadChildren: loadMainModule },
+  { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 
 const opt = {
