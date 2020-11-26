@@ -6,8 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build-theme && ng serve --port 4810",
-    "production": "npm run build-theme && ng build --prod=true --baseHref=/",
-    "production-aot": "npm run build-theme && ontimize-web-ngx production-aot --project-name ontimize-web-ngx-appearance --href /appearance/",
+    "production-aot": "npm run build-theme && ng build --prod=true --baseHref=/",
     "production-aot-server": "npm run build-theme && ng build --prod=true --baseHref=/ontimizeweb/v8/appearance/",
     "build-theme": "node-sass ./src/assets/custom-themes/ -o ./src/assets/custom-themes/ --recursive"
   },
