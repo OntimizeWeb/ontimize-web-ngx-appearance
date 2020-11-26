@@ -45,7 +45,7 @@ export class AppearanceOntimizeService extends OntimizeService {
   public configureService(config: any): void {
     this._urlBase = './assets/dummy-data';
     this._sessionid = config.session ? config.session.id : -1;
-    this._user = config.session ? config.session.user : '';
+    this.user = config.session ? config.session.user : '';
 
     if (config.entity !== undefined) {
       this.entity = config.entity;
@@ -65,26 +65,20 @@ export class AppearanceOntimizeService extends OntimizeService {
   }
 
   public query(kv?: Object, av?: Array<string>, entity?: string, sqltypes?: Object): Observable<any> {
-    
-    var url = this._urlBase + AppearanceOntimizeService.mappings[entity];
 
-    let _innerObserver: any;
-    const dataObservable = new Observable(observer => _innerObserver = observer);
+    const url = this._urlBase + AppearanceOntimizeService.mappings[entity];
 
-    const self = this;
-    this.httpClient.get(url).subscribe(resp => {
+    const options = {
+      headers: this.buildHeaders()
+    };
+    return this.doRequest({
+      method: 'GET',
+      url: url,
+      options: options,
+      successCallback: this.parseSuccessfulQueryResponse,
+      errorCallBack: this.parseUnsuccessfulQueryResponse
+    });
 
-      // Prepare response for ontimize components
-      let response = {
-        code: 0,
-        data: resp['data'],
-        message: ''
-      };
-      _innerObserver.next(response);
-    }, error => {
-      self.parseUnsuccessfulQueryResponse(error, _innerObserver);
-    }, () => _innerObserver.complete());
-    return dataObservable.pipe(share());
   }
 
 

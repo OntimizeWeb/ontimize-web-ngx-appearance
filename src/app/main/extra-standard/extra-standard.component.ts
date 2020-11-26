@@ -9,7 +9,7 @@ import { AppearanceOntimizeService } from '../../shared/services/appearance-onti
 
 export class ExtraStandardComponent implements OnInit {
 
-  @ViewChild('oForm') oForm: OFormComponent;
+  @ViewChild('oForm', { static: true }) oForm: OFormComponent;
 
   protected appearanceOntimizeService: AppearanceOntimizeService;
   constructor(
@@ -28,7 +28,7 @@ export class ExtraStandardComponent implements OnInit {
       .subscribe(
         res => {
 
-          self.oForm._setData(res.data);
+          self.oForm.setData(res.data);
 
         },
         error => console.log(error)

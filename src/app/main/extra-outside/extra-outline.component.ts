@@ -8,16 +8,16 @@ import { AppearanceOntimizeService } from '../../shared/services/appearance-onti
 })
 
 export class ExtraOutlineComponent implements OnInit {
-  @ViewChild('oForm') oForm: OFormComponent;
-  
+  @ViewChild('oForm', { static: true }) oForm: OFormComponent;
+
   protected appearanceOntimizeService: AppearanceOntimizeService;
   constructor(
     protected injector: Injector) {
-      
+
       this.appearanceOntimizeService = this.injector.get(AppearanceOntimizeService);
   }
 
- 
+
   ngOnInit() {
     let serviceCfg = this.appearanceOntimizeService.getDefaultServiceConfiguration();
     this.appearanceOntimizeService.configureService(serviceCfg);
@@ -25,7 +25,7 @@ export class ExtraOutlineComponent implements OnInit {
     this.appearanceOntimizeService.query({}, [], 'ESalesBudgets')
       .subscribe(
         res => {
-          self.oForm._setData(res.data);
+          self.oForm.setData(res.data);
         },
         error => console.log(error)
       );

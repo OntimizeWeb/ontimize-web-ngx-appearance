@@ -4,7 +4,7 @@ import { ThemeStorage, DocsSiteTheme } from './theme-storage/theme-storage';
 
 
 import { OntimizeWebModule } from 'ontimize-web-ngx';
-import { MatSlideToggle } from '@angular/material';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
 
 
 
@@ -20,7 +20,7 @@ export class ThemePicker {
   isDarkTheme: boolean = false;
   isIconAccent: boolean = false;
   currentTheme;
-  @ViewChild('toggleDark') toggleDark: MatSlideToggle;
+  @ViewChild('toggleDark', { static: true }) toggleDark: MatSlideToggle;
 
   themes = [
     {
@@ -87,7 +87,7 @@ export class ThemePicker {
       } else {
         this.styleManager.removeStyle('theme');
       }
-     
+
     } else {
       if (dark) {
         this.styleManager.setStyle('theme', `./assets/custom-themes/${theme.href_dark}`);
