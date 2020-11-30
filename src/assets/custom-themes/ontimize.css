@@ -898,16 +898,15 @@ o-user-info {
 
 .o-checkbox .mat-checkbox {
   font-size: 14px; }
+  .o-checkbox .mat-checkbox .mat-checkbox-ripple {
+    left: calc(50% - 17px);
+    top: calc(50% - 17px);
+    height: 34px;
+    width: 34px; }
 
 .o-checkbox .mat-checkbox-inner-container {
   width: 15px;
   height: 15px; }
-
-.o-checkbox .mat-checkbox-ripple {
-  left: calc(50% - 17px);
-  top: calc(50% - 17px);
-  height: 34px;
-  width: 34px; }
 
 .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0.105em; }
