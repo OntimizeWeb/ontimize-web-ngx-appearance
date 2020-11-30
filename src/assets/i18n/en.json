@@ -56,7 +56,7 @@
   "LINES":"Lines",
   "COUNTRY":"Country",
   "PROVINCE":"Province",
-  
+
   "LOCALITY":"Locality",
   "CLIENT_DATA":"Client Data",
   "DISCOUNTS":"Discounts",
@@ -79,7 +79,9 @@
   "MARGINAGENCY":"Margin on sales",
   "MARGINTRANSATION":"Margin on costs",
   "STORAGE":"Storage",
-  "SUBSTORAGE":"Sub storage"
+  "SUBSTORAGE":"Sub storage",
+  "ABOUT": "About"
+
 
 
 }

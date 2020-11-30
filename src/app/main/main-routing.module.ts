@@ -28,10 +28,11 @@ export const routes: Routes = [
     component: MainComponent,
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadChildren: loadHomeModule },
-      { path: 'standard', loadChildren: loadStandardModule },
-      { path: 'fill', loadChildren: loadFillModule },
-      { path: 'outline', loadChildren: loadOutsideModule }
+      { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      { path: 'standard', loadChildren: () => import('./extra-standard/extra-standard.module').then(m => m.ExtraStandardModule) },
+      { path: 'fill', loadChildren: () => import('./extra-standard/extra-standard.module').then(m => m.ExtraStandardModule) },
+      { path: 'outline', loadChildren: () => import('./extra-outside/extra-outline.module').then(m => m.ExtraOutlineModule) },
+      { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) }
     ]
   }
 ];

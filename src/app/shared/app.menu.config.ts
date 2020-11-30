@@ -6,6 +6,6 @@ export const MENU_CONFIG: MenuRootItem[] = [
   { id: 'appearance-standard', name: 'STANDARD', route: '/standard', icon: 'input' },
   { id: 'appearance-fill', name: 'FILL', route: '/fill', icon: 'featured_video' },
   { id: 'appearance-outline', name: 'OUTLINE', route: '/outline', icon: 'tab' },
-
+  { id: 'about', name: 'ABOUT', route: '/about', icon: 'help_outline' }
 
 ];
