@@ -7,7 +7,7 @@ export function loadMainModule() {
 }
 
 export const routes: Routes = [
-  { path: '', loadChildren: loadMainModule },
+  { path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
   { path: '', redirectTo: '/', pathMatch: 'full' }
 ];
 
