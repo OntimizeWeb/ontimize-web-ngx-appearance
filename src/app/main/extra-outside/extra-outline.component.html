@@ -1,37 +1,37 @@
 <o-form #oForm fxLayout="column" show-header="yes" label-header="sales_budgets" header-actions="R;U;D" entity="ESalesBudgets"
   service="ESalesBudgets" keys="idSalesBudget">
 
-  <o-row layout-gap="14px" layout-padding-vertical>
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
     <o-combo fxFlex="50" attr="COMPANY" value-column="id" columns="id;name" visible-columns="name" required enabled="no"
       entity="ECompanys"></o-combo>
     <o-combo fxFlex="50" attr="DIVISION" value-column="id" columns="id;name" visible-columns="name" entity="EDivision"></o-combo>
   </o-row>
 
-  <o-row layout-gap="14px" layout-padding-vertical>
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
     <o-text-input fxFlex="50" attr="SALES_BUDGET_ID" required enabled="no"></o-text-input>
-    <o-row fxFlex="50" layout-gap="14px">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-combo fxFlex="50%" attr="VERSION" label="VERSION" value-column="version" columns="version" entity="EVersionsSalesBudgets"></o-combo>
       <o-text-input fxFlex="50%" attr="PROFORMA" enabled="no"></o-text-input>
     </o-row>
 
   </o-row>
 
-  <o-row layout-gap="14px" layout-padding-vertical>
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
     <o-list-picker fxFlex="50" attr="CUSTOMER_ID" value-column="id" columns="id;name" visible-columns="name" entity="ECustomer"
       enabled="no"></o-list-picker>
-    <o-row fxFlex="50" layout-gap="14px">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-combo fxFlex="30" attr="BUSINESS_GROUP" value-column="id" columns="id;name" visible-columns="name" entity="EBusinessGroup"></o-combo>
       <o-checkbox fxFlex="20" attr="CONDITIONS_APPLICANT" label="CONDITIONS_APPLICANT" enabled="no"></o-checkbox>
     </o-row>
   </o-row>
 
-  <o-row layout-gap="14px" layout-padding-vertical>
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
     <o-list-picker fxFlex="50" attr="POTENCIAL" query-on-init="no" query-on-bind="no" enabled="no"></o-list-picker>
     <o-list-picker fxFlex="50" attr="Cliente facturación" value-column="id" columns="id;name" visible-columns="name"
       enabled="no"></o-list-picker>
   </o-row>
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-row fxFlex="50" layout-gap="14px">
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-combo fxFlex="50" attr="SALESMAN" entity="ESalesman" value-column="id" columns="id;name;surname"
         visible-columns="name;surname" separator=","></o-combo>
       <o-currency-input fxFlex="50" attr="COMMISION" decimal-digits="2" min-decimal-digits="2" max-decimal-digits="2"
@@ -40,26 +40,26 @@
     <o-combo fxFlex="50" attr="TYPE" query-on-init="no" query-on-bind="no"></o-combo>
   </o-row>
 
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-row fxFlex="50" layout-gap="14px">
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-currency-input fxFlex="50" attr="TOTALBASE" decimal-digits="2" min-decimal-digits="2" max-decimal-digits="2 "
         enabled="no"></o-currency-input>
       <o-currency-input fxFlex="50" attr="TOTAL" decimal-digits="2" min-decimal-digits="2" max-decimal-digits="2"
         enabled="no"></o-currency-input>
     </o-row>
-    <o-row fxFlex="50" layout-gap="14px">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-date-input fxFlex="50" attr="DATE_DOCUMENT"></o-date-input>
       <o-checkbox fxFlex="50" attr="ACCEPTED"></o-checkbox>
     </o-row>
   </o-row>
 
-  <o-row layout-gap="14px" layout-padding-vertical>
-    <o-row fxFlex="50" layout-gap="14px">
+  <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <o-currency-input attr="MINIMUN_AMOUNT" decimal-digits="2" min-decimal-digits="2" max-decimal-digits="2" enabled="no"
         fxFlex="50"></o-currency-input>
       <div fxFlex="50"></div>
     </o-row>
-    <o-row fxFlex="50" layout-gap="14px">
+    <o-row fxFlex="50" layout-gap="14px" appearance="standard">
       <div></div>
       <div></div>
     </o-row>
@@ -68,11 +68,11 @@
   <mat-tab-group>
     <mat-tab [label]="'BASIC' | oTranslate">
       <o-column title="FISCAL_ADDRESS">
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-text-input fxFlex="75" attr="FISCAL_ADDRESS" enabled="no"></o-text-input>
           <o-text-input fxFlex="25" attr="FISCAL_CP" label="CP" enabled="no"></o-text-input>
         </o-row>
-        <o-row layout-gap="14px" layout-padding-top>
+        <o-row layout-gap="14px" layout-padding-top appearance="standard">
           <o-combo fxFlex attr="FISCAL_COUNTRY" label="COUNTRY" value-column="id" columns="id;name" visible-columns="name"
             entity="ECountries" enabled="no"></o-combo>
           <o-combo fxFlex attr="FISCAL_PROVINCE" label="PROVINCE" value-column="id" columns="id;nm" visible-columns="nm"
@@ -83,12 +83,12 @@
 
       <o-column title="CLIENT_DATA">
         <o-text-input attr="CLIENT_ADDRESS1" label="ADDRESS" layout-padding-vertical></o-text-input>
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-text-input fxFlex="75" attr="CLIENT_ADDRESS2" label="ADDRESS"></o-text-input>
           <o-text-input fxFlex="25" attr="CLIENT_CP" label="CP"></o-text-input>
         </o-row>
 
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-combo fxFlex attr="CLIENT_COUNTRY" label="COUNTRY" value-column="id" columns="id;name" visible-columns="name"
             entity="ECountries" clear-button="yes"></o-combo>
           <o-combo fxFlex attr="CLIENT_PROVINCE" label="PROVINCE" value-column="id" columns="id;nm" visible-columns="nm"
@@ -100,27 +100,27 @@
           separator="," entity="EContact" fxFlex="0 1 calc(25% - 14px)" layout-padding-top></o-list-picker>
       </o-column>
       <o-column title="TRANSPORTATION_DATA">
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-combo fxFlex="50" attr="CARRIER_TYPE" value-column="id" columns="id;name" visible-columns="name" separator=","
             clear-button="yes" entity="ECarrierType"></o-combo>
           <o-combo fxFlex="50" attr="CONSIGNMENT_MODEL" value-column="id" columns="id;name" visible-columns="name"
             clear-button="yes" entity="ETransportType"></o-combo>
         </o-row>
 
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-list-picker fxFlex="50" attr="CARRIER" value-column="id" columns="id;name;surname" visible-columns="name;surname"
             separator="," entity="ECarrier"></o-list-picker>
-          <o-row fxFlex="50" layout-gap="14px">
+          <o-row fxFlex="50" layout-gap="14px" appearance="standard">
             <o-text-input fxFlex="50" attr="PLATE"></o-text-input>
             <o-text-input fxFlex="50" attr="CARRIER_REF"></o-text-input>
           </o-row>
         </o-row>
-        <o-row layout-padding-top layout-gap="14px" layout-padding-vertical>
-          <o-row fxFlex="50" layout-gap="14px">
+        <o-row layout-padding-top layout-gap="14px" layout-padding-vertical appearance="standard">
+          <o-row fxFlex="50" layout-gap="14px" appearance="standard">
             <o-text-input fxFlex="50" attr="KILOS" data="0"></o-text-input>
             <o-integer-input fxFlex="50" attr="M3" data="0"></o-integer-input>
           </o-row>
-          <o-row fxFlex="50" layout-gap="14px">
+          <o-row fxFlex="50" layout-gap="14px" appearance="standard">
             <o-integer-input fxFlex="50" attr="PACKAGES" data="0"></o-integer-input>
             <o-integer-input fxFlex="50" attr="PALLETS" data="0"></o-integer-input>
           </o-row>
@@ -131,22 +131,22 @@
           visible-columns="incoterm_code;incoterm_description" separator=" -  " entity="EIncoterm"></o-list-picker>
         <o-text-input fxFlex="50" attr="PLACE_DELIVERY"></o-text-input>
       </o-row>
-      <o-row layout-gap="14px" layout-padding-vertical>
+      <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
         <o-textarea-input fxFlex="50" attr="CUSTOMER_OFFER"></o-textarea-input>
         <o-textarea-input fxFlex="50" attr="OBSERVATIONS"></o-textarea-input>
       </o-row>
     </mat-tab>
     <mat-tab [label]="'LINES' | oTranslate">
       <div>
-        <o-row layout-gap="14px" layout-padding-vertical>
+        <o-row layout-gap="14px" layout-padding-vertical appearance="standard">
           <o-column fxFlex="50" title="DISCOUNTS">
             <o-combo fxFlex attr="GENERAL_DISCOUNT" query-on-init="no" query-on-bind="no"></o-combo>
-            <o-row layout-gap="14px">
+            <o-row layout-gap="14px" appearance="standard">
               <o-checkbox fxFlex attr="defineTotalAmount" label="DEFINE_TOTAL_AMOUNT"></o-checkbox>
               <o-currency-input fxFlex attr="totalAmountDefined" label="TOTAL_AMOUNT_DEFINED" enabled="no"></o-currency-input>
             </o-row>
           </o-column>
-          <o-column fxFlex="50">
+          <o-column fxFlex="50" appearance="standard">
             <o-row fxFlex title="MARGINS" layout-gap="14px">
               <o-percent-input fxFlex="50" attr="MARGINAGENCY" decimal-digits="2"></o-percent-input>
               <o-percent-input fxFlex="50" attr="MARGINTRANSATION" decimal-digits="2"></o-percent-input>
