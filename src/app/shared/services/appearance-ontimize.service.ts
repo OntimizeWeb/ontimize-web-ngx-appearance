@@ -1,8 +1,6 @@
 import { Injector } from '@angular/core';
+import { AppConfig, OntimizeService } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
-import { share } from 'rxjs/operators';
-
-import { OntimizeService, AppConfig } from 'ontimize-web-ngx';
 
 export class AppearanceOntimizeService extends OntimizeService {
 
@@ -32,7 +30,6 @@ export class AppearanceOntimizeService extends OntimizeService {
   }
 
   public getDefaultServiceConfiguration(serviceName?: string): Object {
-
     let configuration = this.injector.get(AppConfig).getServiceConfiguration();
 
     let servConfig = {};
@@ -44,7 +41,6 @@ export class AppearanceOntimizeService extends OntimizeService {
 
   public configureService(config: any): void {
     this._urlBase = './assets/dummy-data';
-    this._sessionid = config.session ? config.session.id : -1;
     this.user = config.session ? config.session.user : '';
 
     if (config.entity !== undefined) {
@@ -65,7 +61,6 @@ export class AppearanceOntimizeService extends OntimizeService {
   }
 
   public query(kv?: Object, av?: Array<string>, entity?: string, sqltypes?: Object): Observable<any> {
-
     const url = this._urlBase + AppearanceOntimizeService.mappings[entity];
 
     const options = {
@@ -78,11 +73,7 @@ export class AppearanceOntimizeService extends OntimizeService {
       successCallback: this.parseSuccessfulQueryResponse,
       errorCallBack: this.parseUnsuccessfulQueryResponse
     });
-
   }
-
-
-
 
   public advancedQuery(kv?: Object, av?: Array<string>, entity?: string, sqltypes?: Object,
     offset?: number, pagesize?: number, orderby?: Array<Object>): Observable<any> {
